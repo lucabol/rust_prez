@@ -37,16 +37,22 @@ fn main() {
     // println!("{}", x);
     // }
 
-    {
-        let title = ">-> Lifetimes intro";
-        fn one_of(s: &str) -> &str {
-            s
-        }
-        let s1 = "Bob".to_owned();
-        let s2 = "Rob".to_owned();
-        let r = one_of(&s1);
-        println!("{}{}", r, s1);
-    }
+    // {
+    // let title = ">-> Lifetimes intro";
+    // fn one_of(s: &str, t: &str) -> &str {
+    // let mut rng = rand::thread_rng();
+    // let y: f64 = rng.gen();
+    // if y < 0.5 {
+    // s
+    // } else {
+    // t
+    // }
+    // }
+    // let s1 = "Bob".to_owned();
+    // let s2 = "Rob".to_owned();
+    // let r = one_of(&s1);
+    // println!("{}{}", r, s1);
+    // }
 
     // {
     // let title = ">-> My, oh my";
