@@ -64,10 +64,10 @@ fn main() {
         age1: &'a i32,
         age2: &'a mut i32,
         age3: Box<i32>, // single owner, checked at compile time, abstracts heap allocation
-        age4: RefCell<i32>, // single owner, checked at runtime, mutable & immutable borrows
-        age5: Rc<i32>,  // multiple owner ref counted, immutable borrows checked at compile time
+        age7: Cell<i32>, // interior mutability for Copy types, checked compile time, multiple mutable borrows
+        age4: RefCell<i32>, // single owner, checked at runtime, mutable & immutable borrows non-copy types
+        age5: Rc<i32>, // multiple owner ref counted,leaks if cycles, immutable borrows checked at compile time
         age6: Arc<i32>, // multiple owner, thread safe
-        age7: Cell<i32>, // interior mutability for Copy types
     }
     // {
     // let title = ">-> My, oh my";
