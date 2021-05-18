@@ -1,4 +1,7 @@
 #![allow(dead_code, unused_variables)]
+use core::cell::{Cell, RefCell};
+use std::rc::Rc;
+use std::sync::Arc;
 
 fn mutate(s: &mut String) {
     *s = s.to_uppercase();
@@ -54,6 +57,18 @@ fn main() {
     // println!("{}{}", r, s1);
     // }
 
+    let title = ">-> Other common case of runtime";
+
+    struct Person<'a> {
+        age0: i32,
+        age1: &'a i32,
+        age2: &'a mut i32,
+        age3: Box<i32>, // single owner, checked at compile time, abstracts heap allocation
+        age4: RefCell<i32>, // single owner, checked at runtime, mutable & immutable borrows
+        age5: Rc<i32>,  // multiple owner ref counted, immutable borrows checked at compile time
+        age6: Arc<i32>, // multiple owner, thread safe
+        age7: Cell<i32>, // interior mutability for Copy types
+    }
     // {
     // let title = ">-> My, oh my";
     // fn swap<'a>(mut s: &'a mut str, r: &'a mut str) {
